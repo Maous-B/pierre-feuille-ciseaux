@@ -8,29 +8,30 @@ while arret_de_la_partie == False:
     choice = input("Entrez un choix entre pierre, feuille ou ciseaux : ")
     print("Vous avez pris " + choice)
     signes_collection = ["pierre", "feuille", "ciseaux"]
-    rrrr = random.randint(0,2)
-    aaaa = signes_collection[rrrr]
-    print("L'ordinateur a choisit " + aaaa + "!")
+    computer_choice = random.choice(signes_collection)
+    print("L'ordinateur a choisit " + computer_choice + "!")
 
-    if aaaa == choice:
+    if computer_choice == choice:
         print("égalité")
 
 
-    if aaaa == "pierre" and choice == "ciseaux":
-        print("L'ordinateur a gagné\n")
-    elif aaaa == "ciseaux" and choice == "feuille":
-        print("L'ordinateur a gagné\n")
-    elif aaaa == "feuille" and choice == "pierre":
-        print("L'ordinateur a gagné\n")
-
-
-    elif choice == "pierre" and aaaa == "ciseaux":
-        print("Vous avez gagné\n")
-    elif choice == "ciseaux" and aaaa == "feuille":
-        print("Vous avez gagné\n")    
-    elif choice == "feuille" and aaaa == "pierre":
-        print("Vous avez gagné\n")
-
+    if choice == "ciseaux":
+        if computer_choice == "feuille":
+            print("Les ciseaux coupent la feuille, vous avez gagné!")
+        else:
+            print("La pierre casse le ciseau, vous avez perdu!")
+    elif choice == "feuille":
+        if computer_choice == "pierre":
+            print("La feuille couvre la pierre, vous avez gagné!")
+        else:
+            print("Les ciseaux coupent la feuille, vous avez perdu!")
+    elif choice == "pierre":
+        if computer_choice == "ciseaux":
+            print("La pierre casse le ciseau, vous avez gagné!")
+        else:
+            print("La feuille couvre la pierre, vous avez perdu!")
+    else:
+        pass
 
     fin_de_la_partie = input("Souhaitez-vous arrêter la partie? (O/N) : ")
 
